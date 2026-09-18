@@ -1,0 +1,458 @@
+/* =========================================================
+   Samudra Nusantara — gaya bersama untuk halaman login
+   dan halaman biota laut
+   ========================================================= */
+
+:root {
+  /* Palet: dari pasir pantai turun ke palung */
+  --pasir:        #F6E7C8;
+  --pasir-tua:    #E3CB9E;
+  --busa:         #EAF7F4;
+  --dangkal:      #4FC3C7;
+  --laut:         #10708F;
+  --laut-tua:     #0A3F5C;
+  --palung:       #04192B;
+  --badut:        #F2843A;   /* aksen: warna ikan badut */
+  --tinta:        #0A2A3A;
+
+  --lebar: 1080px;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Karla", "Segoe UI", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--tinta);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 0 0 .5em;
+  letter-spacing: -.01em;
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--badut);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   1. HALAMAN LOGIN
+   ========================================================= */
+
+.halaman-login {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #BFE9F2 0%, #7FD3E0 38%, #3FA8C4 62%, var(--laut) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- langit --- */
+.langit { position: absolute; inset: 0; pointer-events: none; }
+
+.matahari {
+  position: absolute;
+  top: 6%;
+  right: 12%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #FFE9A8;
+  box-shadow: 0 0 0 26px rgba(255, 233, 168, .28),
+              0 0 0 60px rgba(255, 233, 168, .14);
+}
+
+.awan {
+  position: absolute;
+  height: 26px;
+  background: rgba(255, 255, 255, .78);
+  border-radius: 50px;
+  filter: blur(.4px);
+}
+.awan::before,
+.awan::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+.awan::before { width: 46px; height: 46px; top: -22px; left: 26px; }
+.awan::after  { width: 32px; height: 32px; top: -16px; left: 74px; }
+
+.awan-1 { width: 140px; top: 14%; left: 8%;  animation: hanyut 46s linear infinite; }
+.awan-2 { width: 100px; top: 26%; left: 62%; opacity: .6; animation: hanyut 66s linear infinite; }
+
+@keyframes hanyut {
+  from { transform: translateX(-12vw); }
+  to   { transform: translateX(105vw); }
+}
+
+/* --- kartu login --- */
+.panggung { position: relative; z-index: 3; width: 100%; max-width: 440px; }
+
+.kartu {
+  background: var(--busa);
+  border-radius: var(--radius);
+  padding: 40px 36px 32px;
+  border: 1px solid rgba(255, 255, 255, .9);
+  box-shadow: 0 26px 50px -22px rgba(4, 25, 43, .55);
+}
+
+.kartu-kop {
+  margin: 0 0 22px;
+  font-weight: 700;
+  font-size: .82rem;
+  letter-spacing: .14em;
+  color: var(--laut);
+}
+
+.kartu h1 { font-size: 1.85rem; color: var(--laut-tua); }
+
+.kartu-sub {
+  margin: 0 0 28px;
+  font-size: .95rem;
+  color: #46707F;
+  max-width: 34ch;
+}
+
+.baris { margin-bottom: 18px; }
+
+.baris label {
+  display: block;
+  font-size: .86rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--laut-tua);
+}
+
+.baris input {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: .95rem;
+  color: var(--tinta);
+  background: #fff;
+  border: 1.5px solid #C6DFE2;
+  border-radius: 10px;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.baris input::placeholder { color: #9FB8BF; }
+
+.baris input:focus {
+  border-color: var(--dangkal);
+  box-shadow: 0 0 0 4px rgba(79, 195, 199, .25);
+  outline: none;
+}
+
+.baris-mendatar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 24px;
+  font-size: .86rem;
+}
+
+.ingat { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.ingat input { accent-color: var(--laut); width: 16px; height: 16px; }
+
+.tautan-kecil { color: var(--laut); text-decoration: none; border-bottom: 1px solid rgba(16, 112, 143, .35); }
+.tautan-kecil:hover { color: var(--badut); border-color: var(--badut); }
+
+.tombol {
+  width: 100%;
+  padding: 14px 18px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  background: var(--laut);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .18s ease, transform .18s ease;
+}
+.tombol:hover  { background: var(--laut-tua); }
+.tombol:active { transform: translateY(1px); }
+
+.kaki-kartu {
+  margin: 22px 0 0;
+  text-align: center;
+  font-size: .88rem;
+  color: #5D818D;
+}
+.kaki-kartu a { color: var(--badut); font-weight: 700; text-decoration: none; }
+.kaki-kartu a:hover { text-decoration: underline; }
+
+/* --- laut dan pantai di bagian bawah --- */
+.laut {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 210px;
+  z-index: 1;
+}
+
+.ombak { display: block; width: 100%; height: 60px; }
+.ombak path { fill: var(--laut-tua); }
+
+.air {
+  position: relative;
+  height: 90px;
+  background: var(--laut-tua);
+}
+
+.pasir {
+  position: relative;
+  height: 60px;
+  background: var(--pasir);
+  border-top: 5px solid var(--pasir-tua);
+}
+
+.kerang {
+  position: absolute;
+  bottom: 14px;
+  font-size: 1.6rem;
+}
+.kerang   { left: 16%; }
+.kerang-2 { left: auto; right: 22%; bottom: 20px; font-size: 1.3rem; }
+
+/* gelembung naik dari dasar */
+.gelembung {
+  position: absolute;
+  bottom: -20px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(234, 247, 244, .35);
+  border: 1px solid rgba(234, 247, 244, .5);
+  animation: naik 9s linear infinite;
+}
+.g1 { left: 12%; animation-delay: 0s;   }
+.g2 { left: 38%; width: 8px;  height: 8px;  animation-delay: 2.4s; }
+.g3 { left: 64%; width: 16px; height: 16px; animation-delay: 4.1s; }
+.g4 { left: 85%; width: 10px; height: 10px; animation-delay: 6.3s; }
+
+@keyframes naik {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  15%  { opacity: 1; }
+  100% { transform: translateY(-140px) translateX(14px); opacity: 0; }
+}
+
+
+/* =========================================================
+   2. HALAMAN BIOTA LAUT
+   ========================================================= */
+
+.halaman-biota { background: var(--palung); }
+
+/* --- bilah navigasi --- */
+.bilah {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(4, 25, 43, .86);
+  backdrop-filter: blur(8px);
+  color: var(--busa);
+}
+
+.merek {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.bilah nav { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: .88rem; }
+
+.bilah nav a {
+  text-decoration: none;
+  color: rgba(234, 247, 244, .75);
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.bilah nav a:hover { color: #fff; border-bottom-color: var(--dangkal); }
+
+.bilah .keluar { color: var(--badut); font-weight: 700; }
+.bilah .keluar:hover { border-bottom-color: var(--badut); }
+
+/* --- hero --- */
+.hero {
+  position: relative;
+  padding: 92px 24px 120px;
+  background: linear-gradient(180deg, #CFEFF3 0%, #8FDCE4 45%, #45B2C8 100%);
+  text-align: center;
+}
+
+.hero-isi { max-width: 660px; margin: 0 auto; }
+
+.hero h1 {
+  font-size: clamp(2.1rem, 6vw, 3.5rem);
+  color: var(--laut-tua);
+}
+
+.hero p {
+  margin: 0 auto;
+  max-width: 52ch;
+  color: #0F5670;
+}
+
+.petunjuk {
+  margin-top: 30px !important;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--laut-tua);
+}
+
+.ombak-hero {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 70px;
+}
+.ombak-hero path { fill: var(--pasir); }
+
+/* --- kerangka zona --- */
+.wadah {
+  max-width: var(--lebar);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.zona { padding: 76px 0 88px; }
+
+.kepala-zona { max-width: 60ch; margin-bottom: 40px; }
+
+.kedalaman {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  background: rgba(255, 255, 255, .28);
+  border: 1px solid currentColor;
+}
+
+.kepala-zona h2 { font-size: clamp(1.8rem, 4.4vw, 2.6rem); }
+
+.kepala-zona p { margin: 0; opacity: .9; }
+
+/* warna tiap kedalaman */
+.zona-pantai { background: var(--pasir);    color: #4A3617; }
+.zona-terang { background: var(--dangkal);  color: #063845; }
+.zona-senja  { background: var(--laut-tua); color: #CFE9F0; }
+.zona-dalam  { background: var(--palung);   color: #AFC9D6; }
+
+.zona-pantai .kedalaman { background: rgba(255, 255, 255, .5); }
+.zona-senja  .kedalaman,
+.zona-dalam  .kedalaman { background: rgba(255, 255, 255, .08); }
+
+/* --- kisi kartu biota --- */
+.kisi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 22px;
+}
+
+.kartu-biota {
+  padding: 26px 24px 22px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, .82);
+  border: 1px solid rgba(255, 255, 255, .6);
+  color: var(--tinta);
+  transition: transform .2s ease;
+}
+
+.zona-senja .kartu-biota,
+.zona-dalam .kartu-biota {
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(175, 201, 214, .28);
+  color: #DCEBF2;
+}
+
+.kartu-biota:hover { transform: translateY(-4px); }
+
+.rupa {
+  display: block;
+  font-size: 2.4rem;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.kartu-biota h3 { font-size: 1.28rem; margin-bottom: 2px; }
+
+.latin {
+  margin: 0 0 12px;
+  font-size: .85rem;
+  font-style: italic;
+  opacity: .65;
+}
+
+.kartu-biota p { margin: 0 0 14px; font-size: .95rem; }
+
+.fakta {
+  margin: 0 !important;
+  padding-top: 12px;
+  border-top: 1px solid currentColor;
+  font-weight: 700;
+  font-size: .85rem !important;
+  color: var(--badut);
+  border-top-color: rgba(242, 132, 58, .35);
+}
+
+/* --- kaki halaman --- */
+.kaki {
+  padding: 54px 24px 64px;
+  text-align: center;
+  background: #020E18;
+  color: #7E9CAC;
+}
+.kaki p { margin: 0 0 6px; }
+.kaki .kecil { font-size: .86rem; opacity: .75; }
+
+
+/* =========================================================
+   3. LAYAR KECIL & PREFERENSI GERAK
+   ========================================================= */
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .kartu { padding: 32px 24px 26px; }
+  .matahari { width: 84px; height: 84px; right: 8%; }
+  .bilah { padding: 12px 18px; }
+  .zona { padding: 56px 0 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .awan, .gelembung { animation: none; }
+  .kartu-biota:hover { transform: none; }
+  * { transition-duration: .01ms !important; }
+}
