@@ -3,36 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Wisata Indonesia</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="wisata.css">
 </head>
 
 <body>
 
-    <h1>Wisata Indonesia</h1>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">NUSA<span>TRIP</span></div>
 
-    <p>
-        Indonesia memiliki banyak destinasi wisata
-        yang menarik untuk dikunjungi.
-    </p>
+        <div class="nav-links">
+            <a href="#beranda">Beranda</a>
+            <a href="#destinasi">Destinasi</a>
+            <a href="#tentang">Tentang</a>
+        </div>
+    </nav>
 
-    <h2>Bali</h2>
-    <p>
-        Bali terkenal dengan keindahan alam,
-        budaya, dan pantainya.
-    </p>
 
-    <h2>Raja Ampat</h2>
-    <p>
-        Raja Ampat terkenal dengan keindahan
-        laut dan kekayaan bawah lautnya.
-    </p>
+    <!-- HERO -->
+    <section class="hero" id="beranda">
 
-    <h2>Labuan Bajo</h2>
-    <p>
-        Labuan Bajo memiliki pemandangan alam
-        dan wisata bahari yang menarik.
-    </p>
+        <div class="hero-content">
+            <p class="subtitle">JELAJAHI KEINDAHAN NUSANTARA</p>
+
+            <h1>
+                Temukan Surga<br>
+                <span>Indonesia</span>
+            </h1>
+
+            <p class="hero-text">
+                Dari pantai yang memukau hingga keindahan alam yang luar biasa,
+                Indonesia selalu punya cerita untuk setiap perjalanan.
+            </p>
+
+            <a href="#destinasi" class="hero-button">
+                Jelajahi Sekarang ↓
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- DESTINASI -->
+    <section class="destinations" id="destinasi">
+
+        <div class="section-title">
+            <p>DESTINASI PILIHAN</p>
+            <h2>Tempat yang Wajib Kamu Kunjungi</h2>
+        </div>
+
+
+        <div class="cards">
+
+            <!-- BALI -->
+            <div class="card">
+                <div class="card-image bali">
+                    <span class="location">Bali</span>
+                </div>
+
+                <div class="card-content">
+                    <h3>Bali</h3>
+
+                    <p>
+                        Nikmati keindahan pantai, budaya,
+                        dan suasana tropis yang menjadi
+                        daya tarik Pulau Dewata.
+                    </p>
+
+                    <a href="#" class="read-more">
+                        Jelajahi →
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- RAJA AMPAT -->
+            <div class="card">
+                <div class="card-image raja-ampat">
+                    <span class="location">Papua Barat</span>
+                </div>
+
+                <div class="card-content">
+                    <h3>Raja Ampat</h3>
+
+                    <p>
+                        Surga bawah laut dengan
+                        keanekaragaman hayati dan
+                        pemandangan laut yang luar biasa.
+                    </p>
+
+                    <a href="#" class="read-more">
+                        Jelajahi →
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- LABUAN BAJO -->
+            <div class="card">
+                <div class="card-image labuan-bajo">
+                    <span class="location">Nusa Tenggara Timur</span>
+                </div>
+
+                <div class="card-content">
+                    <h3>Labuan Bajo</h3>
+
+                    <p>
+                        Destinasi eksotis dengan laut biru,
+                        pulau-pulau indah, dan pemandangan
+                        matahari terbenam.
+                    </p>
+
+                    <a href="#" class="read-more">
+                        Jelajahi →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TENTANG -->
+    <section class="about" id="tentang">
+
+        <div class="about-content">
+            <p class="section-label">TENTANG INDONESIA</p>
+
+            <h2>
+                Satu negeri,<br>
+                <span>ribuan cerita.</span>
+            </h2>
+
+            <p>
+                Indonesia memiliki kekayaan alam dan budaya
+                yang tersebar dari Sabang sampai Merauke.
+                Setiap daerah memiliki keunikan yang membuat
+                perjalanan menjadi pengalaman yang berkesan.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>NUSA<span>TRIP</span></h3>
+
+        <p>
+            Jelajahi Indonesia, temukan ceritamu.
+        </p>
+
+        <small>
+            © 2026 Wisata Indonesia
+        </small>
+    </footer>
 
 </body>
 </html>
