@@ -1,72 +1,241 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Masuk — Samudra Nusantara</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Masuk — Samudra Nusantara</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS UTAMA -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- NAVBAR LOGIN -->
+    <style>
+        .login-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1050;
+            padding: 10px 5%;
+            background: rgba(4, 25, 43, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(175, 201, 214, 0.2);
+        }
+
+        .login-navbar .navbar-brand {
+            font-family: "Fraunces", Georgia, serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #eaf7f4;
+        }
+
+        .login-navbar .navbar-brand:hover {
+            color: #4fc3c7;
+        }
+
+        .login-navbar .nav-link {
+            color: rgba(234, 247, 244, 0.85);
+            font-family: "Karla", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 9px 13px;
+            transition: color 0.2s ease, background 0.2s ease;
+            border-radius: 8px;
+        }
+
+        .login-navbar .nav-link:hover,
+        .login-navbar .nav-link.active {
+            color: #4fc3c7;
+            background: rgba(79, 195, 199, 0.12);
+        }
+
+        .login-navbar .navbar-toggler {
+            border: 1px solid #4fc3c7;
+        }
+
+        .login-navbar .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        .login-navbar .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(79, 195, 199, 0.25);
+        }
+
+        @media (max-width: 991.98px) {
+            .login-navbar {
+                padding: 10px 5%;
+            }
+
+            .login-navbar .navbar-collapse {
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 1px solid rgba(175, 201, 214, 0.2);
+            }
+
+            .login-navbar .nav-link {
+                display: block;
+                padding: 11px 13px;
+            }
+        }
+    </style>
 </head>
+
 <body class="halaman-login">
 
-  <!-- ===== Langit, matahari, dan awan ===== -->
-  <div class="langit" aria-hidden="true">
-    <div class="matahari"></div>
-    <div class="awan awan-1"></div>
-    <div class="awan awan-2"></div>
-  </div>
+    <!-- NAVBAR BOOTSTRAP -->
+    <nav class="navbar navbar-expand-lg login-navbar">
+        <div class="container-fluid p-0">
 
-  <!-- ===== Kartu login ===== -->
-  <main class="panggung">
-    <section class="kartu">
-      <p class="kartu-kop">Samudra Nusantara</p>
-      <h1>Selamat datang, penyelam.</h1>
-      <p class="kartu-sub">Masuk untuk mulai menjelajahi biota laut dari tepi pantai sampai palung terdalam.</p>
+            <a class="navbar-brand" href="index.html">
+                Samudra Nusantara
+            </a>
 
-      <form action="biota.html" method="get" class="form">
-        <div class="baris">
-          <label for="nama">Nama pengguna</label>
-          <input type="text" id="nama" name="nama" placeholder="mis. nadia.laut" required>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#loginMenu"
+                aria-controls="loginMenu"
+                aria-expanded="false"
+                aria-label="Buka menu navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="loginMenu">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active"
+                       aria-current="page"
+                       href="index.html">Beranda</a>
+
+                    <a class="nav-link" href="wisata.html">Wisata</a>
+
+                    <a class="nav-link" href="biota.html">Biota Laut</a>
+                </div>
+            </div>
+
         </div>
+    </nav>
 
-        <div class="baris">
-          <label for="sandi">Kata sandi</label>
-          <input type="password" id="sandi" name="sandi" placeholder="Minimal 8 karakter" required minlength="8">
-        </div>
-
-        <div class="baris-mendatar">
-          <label class="ingat">
-            <input type="checkbox" name="ingat">
-            <span>Ingat saya</span>
-          </label>
-          <a href="#" class="tautan-kecil">Lupa kata sandi?</a>
-        </div>
-
-        <button type="submit" class="tombol">Masuk dan menyelam</button>
-      </form>
-
-      <p class="kaki-kartu">Belum punya akun? <a href="#">Daftar gratis</a></p>
-    </section>
-  </main>
-
-  <!-- ===== Laut dan pasir pantai ===== -->
-  <div class="laut" aria-hidden="true">
-    <svg class="ombak" viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,60 C180,110 360,10 540,50 C720,90 900,20 1080,55 C1260,90 1380,70 1440,60 L1440,120 L0,120 Z"></path>
-    </svg>
-    <div class="air">
-      <span class="gelembung g1"></span>
-      <span class="gelembung g2"></span>
-      <span class="gelembung g3"></span>
-      <span class="gelembung g4"></span>
+    <!-- LANGIT, MATAHARI, DAN AWAN -->
+    <div class="langit" aria-hidden="true">
+        <div class="matahari"></div>
+        <div class="awan awan-1"></div>
+        <div class="awan awan-2"></div>
     </div>
-    <div class="pasir">
-      <span class="kerang">🐚</span>
-      <span class="kerang kerang-2">⭐</span>
+
+    <!-- KARTU LOGIN -->
+    <main class="panggung">
+        <section class="kartu">
+            <p class="kartu-kop">Samudra Nusantara</p>
+
+            <h1>Selamat datang, penyelam.</h1>
+
+            <p class="kartu-sub">
+                Masuk untuk mulai menjelajahi biota laut dari tepi
+                pantai sampai palung terdalam.
+            </p>
+
+            <form id="formLogin" class="form">
+                <div class="baris">
+                    <label for="nama">Nama pengguna</label>
+                    <input
+                        type="text"
+                        id="nama"
+                        name="nama"
+                        placeholder="mis. nadia.laut"
+                        required>
+                </div>
+
+                <div class="baris">
+                    <label for="sandi">Kata sandi</label>
+                    <input
+                        type="password"
+                        id="sandi"
+                        name="sandi"
+                        placeholder="Minimal 8 karakter"
+                        required
+                        minlength="8">
+                </div>
+
+                <div class="baris-mendatar">
+                    <label class="ingat">
+                        <input type="checkbox" name="ingat">
+                        <span>Ingat saya</span>
+                    </label>
+
+                    <a href="#" class="tautan-kecil">Lupa kata sandi?</a>
+                </div>
+
+                <button type="submit" class="tombol">
+                    Masuk dan menyelam
+                </button>
+            </form>
+
+            <p class="kaki-kartu">
+                Belum punya akun? <a href="#">Daftar gratis</a>
+            </p>
+        </section>
+    </main>
+
+    <!-- LAUT DAN PASIR PANTAI -->
+    <div class="laut" aria-hidden="true">
+        <svg class="ombak"
+             viewBox="0 0 1440 120"
+             preserveAspectRatio="none">
+            <path d="M0,60 C180,110 360,10 540,50 C720,90 900,20 1080,55 C1260,90 1380,70 1440,60 L1440,120 L0,120 Z"></path>
+        </svg>
+
+        <div class="air">
+            <span class="gelembung g1"></span>
+            <span class="gelembung g2"></span>
+            <span class="gelembung g3"></span>
+            <span class="gelembung g4"></span>
+        </div>
+
+        <div class="pasir">
+            <span class="kerang">🐚</span>
+            <span class="kerang kerang-2">⭐</span>
+        </div>
     </div>
-  </div>
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- LOGIN DEMO DAN NAVBAR -->
+    <script>
+        // Login demonstrasi tanpa mengirim kata sandi ke URL.
+        // Halaman ini belum menggunakan sistem autentikasi.
+        document.getElementById("formLogin").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            if (!this.reportValidity()) {
+                return;
+            }
+
+            window.location.href = "biota.html";
+        });
+
+        // Menutup navbar otomatis setelah tautan diklik di HP.
+        document.querySelectorAll("#loginMenu .nav-link").forEach(function(link) {
+            link.addEventListener("click", function() {
+                const menu = document.getElementById("loginMenu");
+
+                if (window.innerWidth < 992 && menu.classList.contains("show")) {
+                    bootstrap.Collapse.getOrCreateInstance(menu).hide();
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
